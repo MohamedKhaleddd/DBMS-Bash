@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-# this file contains all the global variables and constants
+# this file contains all the global variables and constants and pathes 
 
 # root directory for all databases
 DB_ROOT="./databases"
