@@ -18,7 +18,7 @@ draw_table() {
 
     local header=$(head -1 "$file")
     
-    # ---------------------Counting rows-------------------
+    # ---------------------Counting rows by using helper-------------------
     local data_count=$(count_data_rows "$file")
 
     if [[ "$data_count" -eq 0 ]]; then

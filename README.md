@@ -28,6 +28,6 @@ This project is a Database Management System (DBMS) fully implemented using Bash
     Tables are stored as files within the corresponding database directory.
     Data is stored in text files with columns separated by a delimiter (e.g., :).
     Input validation ensures correct data types for each column.
-    awk and sed are used for data processing and formatting.
+    awk is used for data processing and formatting.
     Bash functions are used for reusable operations (e.g., input validation, formatting output).
 
