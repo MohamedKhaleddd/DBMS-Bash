@@ -28,7 +28,7 @@ is_valid_name() {
 # --- DATA TYPE VALIDATION ---
 validate_int() {
 
-#-----------------Using awk to sure the numbers are (+ or -)-----------------------------------          
+#----------------- Using awk to sure the numbers are (+ or -)-----------------------------------          
     echo "$1" | awk '$0 ~ /^-?[0-9]+$/ {exit 0} {exit 1}'
 }
 
@@ -77,14 +77,18 @@ get_data_type() {
 }
 
 # -------------- check if exists ---------------------------
+
+#Database_exists ?
 database_exists() {
     [[ -d "$DB_ROOT/$1" ]]
 }
 
+#table_exists ?
 table_exists() {
     [[ -f "$DB_ROOT/$CURRENT_DB/tables/$1.tbl" ]]
 }
 
+#values in columns ?
 value_exists_in_column() {
     local table_file=$1
     local col_idx=$2
