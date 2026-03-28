@@ -39,4 +39,13 @@ delete_from_table() {
     
     local table_file=$(get_table_file "$table_name")
     
+    # Get header
+    local header=$(head -1 "$table_file")
+    IFS='|' read -ra cols <<< "$header"
     
+    echo ""
+    echo "Available columns: ${cols[*]}"
+    read -p "Enter column name for condition: " col_name
+    read -p "Enter value to match: " col_val
+    
+  
