@@ -71,4 +71,21 @@ delete_from_table() {
         return 0
     fi
     
-  
+    # Confirm deletion
+    echo ""
+    echo "Found $count row(s) matching the condition"
+    
+    if ! confirm "Delete these rows?"; then
+        echo "Operation cancelled"
+        return 0
+    fi
+    
+    # Execute delete
+    local temp_file=$(mktemp)
+    echo "$header" > "$temp_file"
+    awk -F'|' -v col=$col_idx -v val="$col_val" \
+        'NR>1 && $col!=val {print}' "$table_file" >> "$temp_file"
+    mv "$temp_file" "$table_file"
+    
+    echo "$count row(s) deleted successfully"
+}
