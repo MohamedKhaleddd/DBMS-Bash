@@ -48,4 +48,27 @@ delete_from_table() {
     read -p "Enter column name for condition: " col_name
     read -p "Enter value to match: " col_val
     
+    # Find column index
+    local col_idx=-1
+    for i in "${!cols[@]}"; do
+        if [[ "${cols[$i]}" == "$col_name" ]]; then
+            col_idx=$((i + 1))
+            break
+        fi
+    done
+    
+    if [[ $col_idx -eq -1 ]]; then
+        echo "Error: Column '$col_name' not found"
+        return 1
+    fi
+    
+    # Count matching rows
+    local count=$(awk -F'|' -v col=$col_idx -v val="$col_val" \
+        'NR>1 && $col==val {c++} END{print c+0}' "$table_file")
+    
+    if [[ $count -eq 0 ]]; then
+        echo "No rows found matching $col_name = '$col_val'"
+        return 0
+    fi
+    
   
