@@ -21,4 +21,22 @@ delete_from_table() {
         return 1
     fi
     
-   
+    # Show available tables
+    echo "Available tables:"
+    for tbl in "$tables_dir"/*.tbl; do
+        echo "  - $(basename "$tbl" .tbl)"
+    done
+    echo ""
+    
+    # Get table name
+    read -p "Enter table name: " table_name
+    
+    # Check if table exists
+    if ! table_exists "$table_name"; then
+        echo "Error: Table does not exist"
+        return 1
+    fi
+    
+    local table_file=$(get_table_file "$table_name")
+    
+    
