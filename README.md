@@ -30,4 +30,26 @@ This project is a Database Management System (DBMS) fully implemented using Bash
     Input validation ensures correct data types for each column.
     awk is used for data processing and formatting.
     Bash functions are used for reusable operations (e.g., input validation, formatting output).
+    
+    
+#work split (Elftiany & Omar)
+
+    Omar Wael
+        config 
+        helpers 
+        database 
+        main_menu 
+        db_menu 
+        table module 
+        insert module 
+        select module 
+
+
+    Mohamed Elftiany
+         validation
+         display
+         update
+         delete
+         main
+
 
