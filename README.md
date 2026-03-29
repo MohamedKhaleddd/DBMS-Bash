@@ -32,7 +32,7 @@ This project is a Database Management System (DBMS) fully implemented using Bash
     Bash functions are used for reusable operations (e.g., input validation, formatting output).
     
     
-#work split (Elftiany & Omar)
+# Work split (Elftiany & Omar)
 
     Omar Wael
         config 
